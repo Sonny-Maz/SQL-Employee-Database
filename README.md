@@ -9,7 +9,7 @@ CREATE TABLE Departments (
     CONSTRAINT pk_Departments PRIMARY KEY (
         dept_no
      )
-);
+); 
 
 CREATE TABLE titles (
     title_id VARCHAR   NOT NULL,
