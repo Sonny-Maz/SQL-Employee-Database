@@ -24,7 +24,7 @@ Import each CSV file into the corresponding SQL table. Note be sure to import th
 
 
 
-CREATE TABLE Departments (
+- CREATE TABLE Departments (
     dept_no VARCHAR   NOT NULL,
     dept_name VARCHAR   NOT NULL,
     CONSTRAINT pk_Departments PRIMARY KEY (
@@ -32,7 +32,7 @@ CREATE TABLE Departments (
      )
 ); 
 
-CREATE TABLE titles (
+- CREATE TABLE titles (
     title_id VARCHAR   NOT NULL,
     title VARCHAR   NOT NULL,
     CONSTRAINT pk_titles PRIMARY KEY (
@@ -40,7 +40,7 @@ CREATE TABLE titles (
      )
 );
 
-CREATE TABLE employees (
+- CREATE TABLE employees (
     emp_no integer   NOT NULL,
     emp_title_id VARCHAR   NOT NULL,
     birth_date DATE   NOT NULL,
@@ -53,37 +53,37 @@ CREATE TABLE employees (
      )
 );
 
-CREATE TABLE dept_emp (
+- CREATE TABLE dept_emp (
     emp_no integer   NOT NULL,
     dept_no VARCHAR   NOT NULL
 );
 
-CREATE TABLE dept_manager (
+- CREATE TABLE dept_manager (
     emp_no integer   NOT NULL,
     dept_no VARCHAR   NOT NULL
 );
 
-CREATE TABLE salaries (
+- CREATE TABLE salaries (
     emp_no integer   NOT NULL,
     salary integer   NOT NULL
 );
 
-ALTER TABLE employees ADD CONSTRAINT fk_employees_emp_title_id FOREIGN KEY(emp_title_id)
+- ALTER TABLE employees ADD CONSTRAINT fk_employees_emp_title_id FOREIGN KEY(emp_title_id)
 REFERENCES titles (title_id);
 
-ALTER TABLE dept_emp ADD CONSTRAINT fk_dept_emp_emp_no FOREIGN KEY(emp_no)
+- ALTER TABLE dept_emp ADD CONSTRAINT fk_dept_emp_emp_no FOREIGN KEY(emp_no)
 REFERENCES employees (emp_no);
 
-ALTER TABLE dept_emp ADD CONSTRAINT fk_dept_emp_dept_no FOREIGN KEY(dept_no)
+- ALTER TABLE dept_emp ADD CONSTRAINT fk_dept_emp_dept_no FOREIGN KEY(dept_no)
 REFERENCES Departments (dept_no);
 
-ALTER TABLE dept_manager ADD CONSTRAINT fk_dept_manager_emp_no FOREIGN KEY(emp_no)
+- ALTER TABLE dept_manager ADD CONSTRAINT fk_dept_manager_emp_no FOREIGN KEY(emp_no)
 REFERENCES employees (emp_no);
 
-ALTER TABLE dept_manager ADD CONSTRAINT fk_dept_manager_dept_no FOREIGN KEY(dept_no)
+- ALTER TABLE dept_manager ADD CONSTRAINT fk_dept_manager_dept_no FOREIGN KEY(dept_no)
 REFERENCES Departments (dept_no);
 
-ALTER TABLE salaries ADD CONSTRAINT fk_salaries_emp_no FOREIGN KEY(emp_no)
+- ALTER TABLE salaries ADD CONSTRAINT fk_salaries_emp_no FOREIGN KEY(emp_no)
 REFERENCES employees (emp_no);
 
 
